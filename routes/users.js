@@ -60,6 +60,10 @@ router.post('/', async (req, res, next) => {
       email,
       password,
       phone,
+      gender,
+      birth,
+      height,
+      weight,
       role_id
     } = req.body;
     const users = await Models.users.create({
@@ -68,6 +72,10 @@ router.post('/', async (req, res, next) => {
       email,
       password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
       phone,
+      gender,
+      birth,
+      height,
+      weight,
       role_id
     });
   if (users) {
@@ -97,6 +105,10 @@ router.patch('/:id', async function (req, res, next) {
       email,
       password,
       phone,
+      gender,
+      birth,
+      height,
+      weight,
       role_id
     } = req.body;
     const users = await Models.users.update({
@@ -105,6 +117,10 @@ router.patch('/:id', async function (req, res, next) {
       email,
       password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
       phone,
+      gender,
+      birth,
+      height,
+      weight,
       role_id
     }, {
       where: {
