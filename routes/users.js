@@ -145,11 +145,11 @@ router.patch('/:id', async function (req, res, next) {
   }
 });
 
-router.delete('/', async (req, res, next) => {
-  let db = User(req.db)
-  await db.delete({ '_id': new ObjectId(req.body.id) })
-  res.send({ status: 'ok', message: 'account deleted' })
-})
+// router.delete('/', async (req, res, next) => {
+//   let db = User(req.db)
+//   await db.delete({ '_id': new ObjectId(req.body.id) })
+//   res.send({ status: 'ok', message: 'account deleted' })
+// })
 
 router.delete('/:id', async function (req, res, next) {
   try {
