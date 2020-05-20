@@ -10,6 +10,7 @@ first run
 5. sequelize db:migrate
 6. sequelize db:seed:all
 
+Merge From BtBckt
 sequelize db:migrate:undo:all
 sequelize db:seed:undo:all
 
