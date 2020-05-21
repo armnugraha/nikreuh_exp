@@ -1,6 +1,14 @@
 const express = require('express')
 const jwt = require('../jwt')
 const router = express.Router()
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+const operatorsAliases = {
+  $like: Op.like,
+  $ilike: Op.ilike,
+  $or: Op.or,
+  $not: Op.not
+}
 var Mount = require('../models').mounts
 var view = require('../views')
 
@@ -23,6 +31,30 @@ router.get('/:id', async (req, res, next) => {
   } else {
     res.json(view('mounts empty'))
   }
+})
+
+router.get('/search/:text', async (req, res, next) => {
+
+    let keyword = "%"+req.params.text+"%"
+
+    const mounts = await Mount.findAll({
+        where: {
+            [Op.or]: [
+                {name: {
+                    [Op.iLike]: keyword
+                }},
+                {address: {
+                    [Op.iLike]: keyword
+                }}
+            ]
+        }
+    })
+
+    if (mounts.length !== 0) {
+        res.json(view(mounts))
+    } else {
+        res.json(view('mounts empty'))
+    }
 })
 
 router.post('/', async (req, res, next) => {
