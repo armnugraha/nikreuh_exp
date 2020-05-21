@@ -67,3 +67,6 @@ Basic Query Sequelize
 https://sequelize.org/master/manual/querying.html#where
 https://sequelize.org/master/manual/model-querying-basics.html
 http://zetcode.com/javascript/sequelize/
+
+Full Text Search
+https://medium.com/riipen-engineering/full-text-search-with-sequelize-and-postgresql-3572cb3093e7

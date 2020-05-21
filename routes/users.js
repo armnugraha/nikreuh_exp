@@ -27,7 +27,10 @@ router.get('/', async (req, res, next) => {
     let pageSize = count_user;
  	const users = await User.findAll(paginate(
     	{
-	      where: {}, // conditions
+            where: {}, // conditions
+            order: [
+                ['id', 'DESC']
+            ]
 	    },
     	{ page, pageSize },
   	),{
