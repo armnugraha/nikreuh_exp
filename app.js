@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users')
 var mountsRouter = require('./routes/mounts')
 var mountFilesRouter = require('./routes/mount_files')
 var reviewsRouter = require('./routes/reviews')
+var rolesRouter = require('./routes/roles')
 
 var app = express()
 
@@ -36,6 +37,7 @@ app.use('/users', usersRouter)
 app.use('/mounts', mountsRouter)
 app.use('/mount_files', mountFilesRouter)
 app.use('/reviews', reviewsRouter)
+app.use('/roles', rolesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
