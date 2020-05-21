@@ -117,18 +117,37 @@ router.patch('/:id', async function (req, res, next) {
       weight,
       role_id
     } = req.body;
-    const users = await Models.users.update({
-      username,
-      name,
-      email,
-      password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-      phone,
-      gender,
-      birth,
-      height,
-      weight,
-      role_id
-    }, {
+
+    var updateData;
+
+    if (password != null) {
+        updateData = {
+            username,
+            name,
+            email,
+            password:bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
+            phone,
+            gender,
+            birth,
+            height,
+            weight,
+            role_id
+        };
+    }else{
+        updateData = {
+            username,
+            name,
+            email,
+            phone,
+            gender,
+            birth,
+            height,
+            weight,
+            role_id
+        };
+    }
+
+    const users = await Models.users.update(updateData, {
       where: {
         id: usersId
       }
