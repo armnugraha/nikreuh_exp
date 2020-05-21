@@ -47,8 +47,8 @@ router.get('/', async (req, res, next) => {
 
 
 router.get('/:id', async (req, res, next) => {
-  const user = await User.findAll({
-    where: { id: req.params.id }
+  const user = await User.findByPk(req.params.id, {
+    include: [ Role ]
   })
 
   if (user.length !== 0) {
