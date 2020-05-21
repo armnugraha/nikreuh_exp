@@ -62,3 +62,8 @@ https://github.com/the-benchmarker/web-frameworks/blob/master/README.md?fbclid=I
 Install package sequelize global
 Sequelize
 https://sequelize.readthedocs.io/en/latest/docs/getting-started/
+
+Basic Query Sequelize
+https://sequelize.org/master/manual/querying.html#where
+https://sequelize.org/master/manual/model-querying-basics.html
+http://zetcode.com/javascript/sequelize/
