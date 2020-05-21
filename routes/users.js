@@ -5,13 +5,13 @@ var Role = require('../models').roles
 var view = require('../views')
 var Models = require('../models')
 const bcrypt = require("bcrypt");
+const pageLimit = 10
 
 //PAGINATION Function
 const paginate = (query, { page, pageSize }) => {
   // const offset = page * pageSize;
-  const offset = page;
-  const limit = pageSize;
-
+  const limit = pageLimit;
+  const offset = 0 + (page - 1) * limit;
   return {
     ...query,
     offset,
@@ -21,8 +21,10 @@ const paginate = (query, { page, pageSize }) => {
 
 router.get('/', async (req, res, next) => {
  	const count_user = await User.count({})
+    const totalPage = Math.ceil(count_user/pageLimit)
+
 	let page = +req.query.page;
-    let pageSize = +req.query.page_limit;
+    let pageSize = count_user;
  	const users = await User.findAll(paginate(
     	{
 	      where: {}, // conditions
@@ -33,7 +35,11 @@ router.get('/', async (req, res, next) => {
   	})
 
 	if (users.length !== 0) {
-		res.json(view(users))
+        res.status(200).json({
+            'status': 'ok',
+            'pageSize': totalPage,
+            'data': users,
+        })
 	} else {
 		res.json(view('users empty'))
 	}
