@@ -18,4 +18,13 @@ router.get('/', async function (req, res, next) {
     }
 })
 
+router.get('/:id', async function (req, res, next) {
+    const roles = await Role.findByPk(req.params.id)
+    if (roles.length !== 0) {
+        res.json(view(roles))
+    } else {
+        res.json(view('roles empty'))
+    }
+})
+
 module.exports = router
