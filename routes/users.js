@@ -123,12 +123,13 @@ router.patch('/:id', async function (req, res, next) {
 
     var updateData;
 
-    if (password != null) {
+    var check = [null, "null"];
+
+    if (check.indexOf(password) !== -1) {
         updateData = {
             username,
             name,
             email,
-            password:bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
             phone,
             gender,
             birth,
@@ -141,6 +142,7 @@ router.patch('/:id', async function (req, res, next) {
             username,
             name,
             email,
+            password:bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
             phone,
             gender,
             birth,
