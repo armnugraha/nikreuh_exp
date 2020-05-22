@@ -44,7 +44,7 @@ router.post('/', async function (req, res, next) {
     const match = await bcrypt.compare(req.body.password, user.password);
 
     if(match) {
-      var token = jwt.sign({ id: user.id, email: user.email, role_id: user.role_id, username: user.username })
+      var token = jwt.sign({ id: user.id, email: user.email, role_id: user.role_id, username: user.username, name: user.name })
       res.send(view(token))
     }else{
       res.send(view('password is wrong'))
