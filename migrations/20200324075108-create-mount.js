@@ -13,6 +13,7 @@ module.exports = {
         // references: { model: 'users', key: 'id' }
       },
       name: {
+        unique: true,
         type: Sequelize.STRING
       },
       address: {
