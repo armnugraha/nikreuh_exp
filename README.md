@@ -37,6 +37,7 @@ sequelize model:generate --name mount_reviews --attributes mount_id:integer,user
 sequelize model:generate --name mount_review_files --attributes mount_id:integer,file:text
 
 sequelize model:generate --name outdoor_gears --attributes mount_id:integer,name:string
+sequelize migration:create --name modify_outdoor_gears_add_new_fields #Add Field In Migration > sequelize db:migrate
 
 sequelize model:generate --name mount_announcements --attributes mount_id:integer,title:string,note:string,start_date:date,end_date:date,file:text
 
@@ -63,10 +64,13 @@ Install package sequelize global
 Sequelize
 https://sequelize.readthedocs.io/en/latest/docs/getting-started/
 
-Basic Query Sequelize
+## Basic Query Sequelize
 https://sequelize.org/master/manual/querying.html#where
 https://sequelize.org/master/manual/model-querying-basics.html
 http://zetcode.com/javascript/sequelize/
 
-Full Text Search
+## Full Text Search
 https://medium.com/riipen-engineering/full-text-search-with-sequelize-and-postgresql-3572cb3093e7
+
+## Add Field
+https://dev.to/nedsoft/add-new-fields-to-existing-sequelize-migration-3527
