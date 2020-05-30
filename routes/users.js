@@ -48,6 +48,22 @@ router.get('/', async (req, res, next) => {
 	}
 })
 
+router.get('/admin_gunung', async function (req, res, next) {
+    const users = await User.findAll({
+        where: {
+            role_id: 2
+        },
+        order: [
+            ['id', 'DESC']
+        ]
+    })
+
+    if (users.length !== 0) {
+        res.json(view(users))
+    } else {
+        res.json(view('users empty'))
+    }
+})
 
 router.get('/:id', async (req, res, next) => {
   const user = await User.findByPk(req.params.id, {
