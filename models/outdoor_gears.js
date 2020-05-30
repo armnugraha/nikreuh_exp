@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   outdoor_gears.associate = function(models) {
     // associations can be defined here
+    outdoor_gears.belongsTo(models.gears, {
+        foreignKey: 'gear_id'
+    })
   };
   return outdoor_gears;
 };
