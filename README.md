@@ -25,8 +25,15 @@ sequelize seed:generate --name mount-seeder
 sequelize seed:generate --name mount-file-seeder
 sequelize seed:generate --name mount-review-seeder
 sequelize seed:generate --name mount-review-file-seeder
+sequelize seed:generate --name gears
+sequelize seed:generate --name gear_items
+sequelize seed:generate --name outdoor_gears
 
+## Seed by class
 sequelize db:seed --seed 20200329020737-mount-seeder
+sequelize db:seed --seed 20200529084203-gears
+sequelize db:seed --seed 20200529084206-gear_items
+sequelize db:seed --seed 20200529084213-outdoor_gears
 
 sequelize model:generate --name mounts --attributes user_id:integer,name:string,address:string,altitude:integer,rank:integer,thumb:text,type:string,desc:string,price:integer,start_time:date,end_time:date,full_time:boolean,start_date:date,end_date:date,status_open:boolean,center_coordinate:string
 
@@ -38,6 +45,10 @@ sequelize model:generate --name mount_review_files --attributes mount_id:integer
 
 sequelize model:generate --name outdoor_gears --attributes mount_id:integer,name:string
 sequelize migration:create --name modify_outdoor_gears_add_new_fields #Add Field In Migration > sequelize db:migrate
+
+sequelize model:generate --name gear_items --attributes gear_id:integer,name:string,weight:integer,condition:integer,type:integer,capacity:string
+
+sequelize model:generate --name gears --attributes name:string
 
 sequelize model:generate --name mount_announcements --attributes mount_id:integer,title:string,note:string,start_date:date,end_date:date,file:text
 
@@ -74,3 +85,9 @@ https://medium.com/riipen-engineering/full-text-search-with-sequelize-and-postgr
 
 ## Add Field
 https://dev.to/nedsoft/add-new-fields-to-existing-sequelize-migration-3527
+
+## Weather
+https://openweathermap.org/weather-conditions
+
+## Gears
+https://my-best.id/28993
