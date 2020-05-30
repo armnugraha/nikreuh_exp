@@ -12,6 +12,7 @@ var mountsRouter = require('./routes/mounts')
 var mountFilesRouter = require('./routes/mount_files')
 var reviewsRouter = require('./routes/reviews')
 var rolesRouter = require('./routes/roles')
+var gearsRouter = require('./routes/gears')
 
 var app = express()
 
@@ -39,6 +40,7 @@ app.use('/mounts', mountsRouter)
 app.use('/mount_files', mountFilesRouter)
 app.use('/reviews', reviewsRouter)
 app.use('/roles', rolesRouter)
+app.use('/gears', gearsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
