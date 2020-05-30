@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   gears.associate = function(models) {
     // associations can be defined here
+    gears.hasMany(models.gear_items, {
+        foreignKey: 'gear_id'
+    })
   };
   return gears;
 };
