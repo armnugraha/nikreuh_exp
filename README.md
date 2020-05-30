@@ -80,6 +80,9 @@ https://sequelize.org/master/manual/querying.html#where
 https://sequelize.org/master/manual/model-querying-basics.html
 http://zetcode.com/javascript/sequelize/
 
+## Query with if
+https://stackoverflow.com/questions/41531405/how-to-make-if-condition-in-nodejs-sequelize-model-query
+
 ## Full Text Search
 https://medium.com/riipen-engineering/full-text-search-with-sequelize-and-postgresql-3572cb3093e7
 
