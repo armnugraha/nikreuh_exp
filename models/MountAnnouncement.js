@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     mount_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     note: DataTypes.STRING,
-    start_date: DataTypes.DATE,
-    end_date: DataTypes.DATE,
+    start_date: DataTypes.DATEONLY,
+    end_date: DataTypes.DATEONLY,
     file: DataTypes.TEXT
   }, {});
   MountAnnouncement.associate = function(models) {
