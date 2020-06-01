@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             return this.setDataValue('start_day', JSON.stringify(val));
         }
     },
-    status_open: DataTypes.BOOLEAN,
+    // status_open: DataTypes.BOOLEAN,
     // center_coordinate: DataTypes.STRING
     center_coordinate: { 
         type: DataTypes.STRING, 
@@ -55,6 +55,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Mount.associate = function(models) {
     Mount.hasMany(models.mount_files, {
+        foreignKey: 'mount_id'
+    })
+    Mount.hasMany(models.mount_announcements, {
         foreignKey: 'mount_id'
     })
     Mount.belongsTo(models.users, {
