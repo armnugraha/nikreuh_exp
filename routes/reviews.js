@@ -4,6 +4,8 @@ const router = express.Router()
 var Review = require('../models').mount_reviews
 var Models = require('../models')
 var view = require('../views')
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 router.get('/', async function (req, res, next) {
   const reviews = await Review.findAll({})
@@ -15,51 +17,69 @@ router.get('/', async function (req, res, next) {
 })
 
 router.get('/:id', async (req, res, next) => {
-  const reviews = await Review.findAll({
-    include: [ Models.users ],
-    where: { mount_id: req.params.id }
-  })
+    const reviews = await Review.findAll({
+        include: [ Models.users ],
+        where: { mount_id: req.params.id }
+    })
 
-  if (reviews.length !== 0) {
-    res.json(view(reviews))
-  } else {
-    res.json(view('reviews empty'))
-  }
+    if (reviews.length !== 0) {
+        res.json(view(reviews))
+    } else {
+        res.json(view('reviews empty'))
+    }
+})
+
+router.get('/reviewed/:mount_id/:user_id', async (req, res, next) => {
+    const reviews = await Review.findAll({
+        include: [ Models.users ],
+        where: { 
+            [Op.and]: [
+                {mount_id: req.params.mount_id},
+                {user_id: req.params.user_id}
+            ]
+        }
+    })
+
+    if (reviews.length !== 0) {
+        res.json(view(reviews))
+    } else {
+        res.json(view('reviews empty'))
+    }
 })
 
 router.get('/calculate_review/:id', async (req, res, next) => {
-  const reviews = await Review.findAll({
-    where: { mount_id: req.params.id }
-  })
+    const reviews = await Review.findAll({
+        where: { mount_id: req.params.id }
+    })
 
-  var setToArrayStarReview = []
+    var setToArrayStarReview = []
 
-  reviews.forEach(item => { 
-    setToArrayStarReview.push(item.rate)
-  });
+    reviews.forEach(item => { 
+        setToArrayStarReview.push(item.rate)
+    });
 
-  // kumpulan data rank dalam bentuk array
-  // examp. [1,2,1,3,4,5]
-  var array_elements = setToArrayStarReview;
+    // kumpulan data rank dalam bentuk array
+    // examp. [1,2,1,3,4,5]
+    var array_elements = setToArrayStarReview;
 
-  // urutkan nilai dalam array
-  // examp. [1,1,2,3,4,5]
-  array_elements.sort();
+    // urutkan nilai dalam array
+    // examp. [1,1,2,3,4,5]
+    array_elements.sort();
 
-  var current = null;
-  var cnt = 0;
-  var total = 0;
-  var total2 = [];
-  var totalDiv = [];
-  
-  var total1S = [];
-  var total2S = [];
-  var total3S = [];
-  var total4S = [];
-  var total5S = [];
-  var cek = [];
+    var current = null;
+    var cnt = 0;
+    var total = 0;
+    var total2 = [];
+    var totalDiv = [];
 
-  for (var i = 0; i < array_elements.length; i++) {
+    var total1S = [];
+    var total2S = [];
+    var total3S = [];
+    var total4S = [];
+    var total5S = [];
+    var cek = [];
+
+    for (var i = 0; i < array_elements.length; i++) {
       if (array_elements[i] != current) {
           if (cnt > 0) {
               total = current*cnt;
