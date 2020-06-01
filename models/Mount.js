@@ -57,6 +57,9 @@ module.exports = (sequelize, DataTypes) => {
     Mount.hasMany(models.mount_files, {
         foreignKey: 'mount_id'
     })
+    Mount.belongsTo(models.users, {
+        foreignKey: 'user_id'
+    })
   };
   return Mount;
 };
