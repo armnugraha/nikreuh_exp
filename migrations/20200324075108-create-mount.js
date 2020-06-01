@@ -50,10 +50,10 @@ module.exports = {
       start_day: {
         type: Sequelize.STRING
       },
-      status_open: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
-      },
+      // status_open: {
+      //   type: Sequelize.BOOLEAN,
+      //   defaultValue: true
+      // },
       center_coordinate: {
         type: Sequelize.STRING
       },
