@@ -10,6 +10,7 @@ const operatorsAliases = {
   $not: Op.not
 }
 var Mount = require('../models').mounts
+var User = require('../models').users
 var view = require('../views')
 const pageLimit = 10
 
@@ -33,6 +34,7 @@ router.get('/', async function (req, res, next) {
     let pageSize = count_mount;
     const mounts = await Mount.findAll(paginate(
         {
+            include: [ User ],
             where: {}, // conditions
             order: [
                 ['id', 'DESC']
