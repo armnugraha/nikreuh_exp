@@ -13,7 +13,7 @@ module.exports = {
         {
             name: 'Matras'
         },
-        {
+        {// 5
             name: 'Trekking Pole'
         },
         {
@@ -28,14 +28,14 @@ module.exports = {
         {
             name: 'Sepatu'
         },
-        {
+        {//10
             name: 'Sarung Tangan'
         },
         {
             name: 'Senter'
         },
         {
-            name: 'Lampu Tenda'
+            name: 'Lampu Tenda' //hapus
         },
         {
             name: 'Kompor'
@@ -43,7 +43,7 @@ module.exports = {
         {
             name: 'Gas Hicook'
         },
-        {
+        {//15
             name: 'Nesting'
         }
         ], {})
