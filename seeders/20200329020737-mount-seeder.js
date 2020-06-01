@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('mounts', [{
-      user_id:1,
+      user_id:2,
       name:'Gunung Manglayang (Via Batu Kuda)',
       address:'Cibiru Wetan, Cileunyi, Bandung, Jawa Barat 40625',
       altitude:1818,
@@ -18,7 +18,7 @@ module.exports = {
       place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
-      user_id:2,
+      user_id:3,
       name:'Curug Cilengkrang',
       address:'Cilengkrang, Bandung, Jawa Barat 40615',
       altitude:1200,
@@ -34,7 +34,7 @@ module.exports = {
       place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
-      user_id:3,
+      user_id:4,
       name: 'LHI Jaya Giri',
       address:'kecamatan Lembang, Bandung Barat, Jawa Barat',
       altitude:1450,
@@ -50,7 +50,7 @@ module.exports = {
       place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
-      user_id:4,
+      user_id:5,
       name: 'Ciwangun Indah Camp',
       address:'Kp. Ciwangun, RT. 03 / 15, Desa Cihanjuang Rahayu, Jl. Kolonel Masturi, Cihanjuang Rahayu, Kec. Parongpong, Kabupaten Bandung Barat, Jawa Barat 40559',
       altitude:1100,
