@@ -2,6 +2,7 @@ const express = require('express')
 const jwt = require('../jwt')
 const router = express.Router()
 const Sequelize = require('sequelize');
+const moment = require('moment');
 const Op = Sequelize.Op;
 const operatorsAliases = {
   $like: Op.like,
@@ -11,6 +12,7 @@ const operatorsAliases = {
 }
 var Mount = require('../models').mounts
 var User = require('../models').users
+var Announce = require('../models').mount_announcements
 var view = require('../views')
 const pageLimit = 10
 
@@ -34,11 +36,21 @@ router.get('/', async function (req, res, next) {
     let pageSize = count_mount;
     const mounts = await Mount.findAll(paginate(
         {
-            include: [ User ],
+            include:[{model: User},{model: Announce,
+                where: {
+                    end_date: {
+                        [Op.gte]: moment().toDate()
+                    }
+                },
+                order: [
+                    ['end_date', 'DESC']
+                ],
+                limit: 1
+            }],
             where: {}, // conditions
             order: [
                 ['id', 'DESC']
-            ]
+            ],
         },
         { page, pageSize },
     ))
