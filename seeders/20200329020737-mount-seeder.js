@@ -15,7 +15,7 @@ module.exports = {
       full_time:true,
       start_day:"[\"Senin\",\"Selasa\",\"Rabu\",\"Kamis\",\"Jumat\",\"Sabtu\",\"Minggu\"]",
       center_coordinate:"[107.7405641, -6.8902561]",
-      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
+      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"title\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
       user_id:3,
@@ -31,7 +31,7 @@ module.exports = {
       end_time:"18:00:00",
       start_day:"[\"Senin\",\"Selasa\",\"Rabu\",\"Kamis\",\"Jumat\",\"Sabtu\",\"Minggu\"]",
       center_coordinate:"[107.7405641, -6.8902561]",
-      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
+      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"title\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
       user_id:4,
@@ -47,7 +47,7 @@ module.exports = {
       end_time:"18:00:00",
       start_day:"[\"Senin\",\"Selasa\",\"Rabu\",\"Kamis\",\"Jumat\",\"Sabtu\",\"Minggu\"]",
       center_coordinate:"[107.7405641, -6.8902561]",
-      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
+      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"title\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     },{
       user_id:5,
@@ -63,7 +63,7 @@ module.exports = {
       end_time:"19:30:00",
       start_day:"[\"Senin\",\"Selasa\",\"Rabu\",\"Kamis\",\"Jumat\",\"Sabtu\",\"Minggu\"]",
       center_coordinate:"[107.7405641, -6.8902561]",
-      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"notes\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
+      place:"[{\"type\": \"Feature\",\"properties\": {\"icon\": \"ic_n_gate\",\"title\":\"Pintu Masuk\",\"desc\": \"Pos 1 - Pos 2(Estimasi 1 Jam) - (2 KM)\"},\"geometry\": {\"type\": \"Point\",\"coordinates\": [107.745091, -6.893077]}}]",
       track_line:"[[107.745091, -6.893077],[107.745667, -6.890376],[107.749103, -6.892071],[107.748759, -6.892859],[107.744036, -6.889353],[107.742451, -6.889072],[107.744297, -6.884726],[107.742107, -6.882979],[107.742837, -6.880423],[107.743569, -6.878727],[107.743934, -6.877944]]",
     }], {})
   },
