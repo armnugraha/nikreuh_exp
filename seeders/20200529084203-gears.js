@@ -34,17 +34,17 @@ module.exports = {
         {
             name: 'Senter'
         },
-        {
-            name: 'Lampu Tenda' //hapus
-        },
+        // {
+        //     name: 'Lampu Tenda' //hapus
+        // },
         {
             name: 'Kompor'
         },
         {
-            name: 'Gas Hicook'
-        },
-        {//15
             name: 'Nesting'
+        },
+        {
+            name: 'Tali Webbing'
         }
         ], {})
     },
