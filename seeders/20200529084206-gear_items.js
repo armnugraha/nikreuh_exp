@@ -43,7 +43,7 @@ module.exports = {
         {gear_id:8,name: 'Consina Ultralight Raincoat',weight:450,condition:1,type:1,capacity:"Nilon Coated PU"},
 
         {gear_id:9,name: 'Adidas Terrex AX2R',weight:1000,condition:0,type:0,capacity:"Size 40"},
-        {gear_id:9,name: 'Merrel MOAB 2 Vent',weight:744,condition:0,type:,capacity:"Size 37"},
+        {gear_id:9,name: 'Merrel MOAB 2 Vent',weight:744,condition:0,type:0,capacity:"Size 37"},
         {gear_id:9,name: 'Consina Shard Men',weight:800,condition:1,type:0,capacity:"Size 40"},
         {gear_id:9,name: 'Eiger Shoes Boot Pollock',weight:1000,condition:1,type:0,capacity:"Size 38-45"},
         
@@ -54,26 +54,28 @@ module.exports = {
         {gear_id:11,name: 'Cree Flashlight C8',weight:250,condition:1,type:0,capacity:"3800 Lumen"},
         {gear_id:11,name: 'Pocketman LED Flashlight',weight:60,condition:1,type:1,capacity:"2000 Lumen"},
         
-        {gear_id:12,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:12,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:12,name: '',weight:,condition:,type:,capacity:""},
+        {gear_id:12,name: 'Kompor spirtus gel',weight:100,condition:0,type:1,capacity:"Spirtus"},
+        {gear_id:12,name: 'Kompor trangia',weight:200,condition:0,type:0,capacity:"Spirtus"},
+        {gear_id:12,name: 'Kompor mini wind prof',weight:300,condition:0,type:1,capacity:"Tabung Hicook"},
+        {gear_id:12,name: 'Niko Kompor Portable NK – 268',weight:1000,condition:0,type:0,capacity:"Tabung Hicook"},
+        {gear_id:12,name: 'Kompor ultralight',weight:80,condition:0,type:1,capacity:"Tabung Hicook"},
         
-        {gear_id:13,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:13,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:13,name: '',weight:,condition:,type:,capacity:""},
+        {gear_id:13,name: 'Army Nesting Set',weight:100,condition1:,type:1,capacity:"2 Orang"},
+        {gear_id:13,name: 'Camping Frying Pan',weight:50,condition:1,type:1,capacity:"2 Orang"},
+        {gear_id:13,name: 'Cookware Set',weight:200,condition:1,type:1,capacity:"4 Orang"},
+        {gear_id:13,name: '3-in-1 Pot Set',weight:500,condition:1,type:0,capacity:"6-8 Orang"},
 
-        {gear_id:14,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:14,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:14,name: '',weight:,condition:,type:,capacity:""},
+        {gear_id:14,name: 'Tali Karmantel Statis',weight:5000,condition:1,type:0,capacity:"P=50m, L=10,5mm, Beban=250kg"},
+        {gear_id:14,name: 'Tali Webbing Sling Tubular',weight:200,condition:1,type:1,capacity:"P=5-45m, L=2,5cm, Beban=250kg"},
         
-        {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:15,name: '',weight:,condition:,type:,capacity:""},
         
-        {gear_id:,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:,name: '',weight:,condition:,type:,capacity:""},
-        {gear_id:,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:,name: '',weight:,condition:,type:,capacity:""},
+        // {gear_id:,name: '',weight:,condition:,type:,capacity:""},
 
 
         ], {})
