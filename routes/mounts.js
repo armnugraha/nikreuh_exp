@@ -18,14 +18,14 @@ const pageLimit = 10
 
 //PAGINATION Function
 const paginate = (query, { page, pageSize }) => {
-  // const offset = page * pageSize;
-  const limit = pageLimit;
-  const offset = 0 + (page - 1) * limit;
-  return {
-    ...query,
-    offset,
-    limit,
-  };
+    // const offset = page * pageSize;
+    const limit = pageLimit;
+    const offset = 0 + (page - 1) * limit;
+    return {
+        ...query,
+        offset,
+        limit,
+    };
 };
 
 router.get('/', async function (req, res, next) {
@@ -38,9 +38,16 @@ router.get('/', async function (req, res, next) {
         {
             include:[{model: User},{model: Announce,
                 where: {
-                    end_date: {
-                        [Op.gte]: moment().toDate()
-                    }
+                    [Op.and]: [
+                        {start_date: {
+                          // use between ?
+                            [Op.lte]: moment().toDate()
+                        }},
+                        {end_date: {
+                          // use between ?
+                            [Op.gte]: moment().toDate()
+                        }}
+                    ]
                 },
                 order: [
                     ['end_date', 'DESC']
@@ -68,15 +75,15 @@ router.get('/', async function (req, res, next) {
 })
 
 router.get('/:id', async (req, res, next) => {
-  const mounts = await Mount.findAll({
-    where: { id: req.params.id }
-  })
+    const mounts = await Mount.findAll({
+        where: { id: req.params.id }
+    })
 
-  if (mounts.length !== 0) {
-    res.json(view(mounts))
-  } else {
-    res.json(view('mounts empty'))
-  }
+    if (mounts.length !== 0) {
+        res.json(view(mounts))
+    } else {
+        res.json(view('mounts empty'))
+    }
 })
 
 router.get('/search/:text', async (req, res, next) => {
@@ -93,7 +100,23 @@ router.get('/search/:text', async (req, res, next) => {
                     [Op.iLike]: keyword
                 }}
             ]
-        }
+        },
+        include:[{model: User},{model: Announce,
+            where: {
+                [Op.and]: [
+                    {start_date: {
+                        [Op.lte]: moment().toDate()
+                    }},
+                    {end_date: {
+                        [Op.gte]: moment().toDate()
+                    }}
+                ]
+            },
+            order: [
+                ['end_date', 'DESC']
+            ],
+            limit: 1
+        }]
     })
 
     if (mounts.length !== 0) {
@@ -104,50 +127,50 @@ router.get('/search/:text', async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
-  try {
-    const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
-    const mounts = await Mount.create({
-      user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
-    });
-  if (mounts) {
-    res.json(view(mounts))
-  }
- } catch (err) {
-   res.json(view(err.errors[0].message))
- }
+    try {
+        const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
+        const mounts = await Mount.create({
+            user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
+        });
+    if (mounts) {
+        res.json(view(mounts))
+    }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
+    }
 })
 
 router.patch('/:id', async (req, res, next) => {
-  try {
-    const mountId = req.params.id;
-    const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
-    const mounts = await Mount.update({
-      user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
-    }, {
-      where: {
-        id: mountId
-      }
-    });
-    if (mounts) {
-      res.json(view(mounts))
+    try {
+        const mountId = req.params.id;
+        const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
+        const mounts = await Mount.update({
+            user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
+        }, {
+            where: {
+                id: mountId
+            }
+        });
+        if (mounts) {
+            res.json(view(mounts))
+        }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
     }
-  } catch (err) {
-    res.json(view(err.errors[0].message))
-  }
 })
 
 router.delete('/:id', async function (req, res, next) {
-  try {
-    const mountId = req.params.id;
-    const mounts = await Mount.destroy({ where: {
-      id: mountsId
-    }})
-    if (mounts) {
-      res.json(view(mounts))
+    try {
+        const mountId = req.params.id;
+        const mounts = await Mount.destroy({ where: {
+            id: mountsId
+        }})
+        if (mounts) {
+            res.json(view(mounts))
+        }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
     }
-  } catch (err) {
-    res.json(view(err.errors[0].message))
-  }
 });
 
 module.exports = router
