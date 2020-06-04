@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   MountAnnouncement.associate = function(models) {
     // associations can be defined here
+    MountAnnouncement.belongsTo(models.mounts, {
+        foreignKey: 'mount_id'
+    })
   };
   return MountAnnouncement;
 };
