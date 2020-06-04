@@ -94,3 +94,10 @@ https://openweathermap.org/weather-conditions
 
 ## Gears
 https://my-best.id/28993
+
+https://stackoverflow.com/questions/26836146/how-to-sort-array-items-by-longitude-latitude-distance-in-javascripts
+
+https://github.com/rotaready/moment-range
+https://cloud.githubusercontent.com/assets/21040043/24750025/8c8d044e-1aef-11e7-8fd7-7d64431af7e4.png
+
+https://stackoverflow.com/questions/20943089/how-to-convert-unix-timestamp-to-calendar-date-moment-js
