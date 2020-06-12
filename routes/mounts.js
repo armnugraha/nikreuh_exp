@@ -86,6 +86,55 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.get('/mount/:id', async (req, res, next) => {
+    const mounts = await Mount.findByPk(req.params.id)
+
+    var data_time = []
+    var data_distance = []
+
+    for(var i=0; i < mounts.place.length; i++){
+        if (i == 0) {
+            data_time.push(-1)
+            data_distance.push(-1)
+        }
+
+        if(i < mounts.place.length-1){
+            var j = i+1;
+            var now = moment(mounts.place[i].properties.created_at, "HH:mm:ss");
+            var end = moment(mounts.place[j].properties.created_at, "HH:mm:ss");
+            var duration = moment.duration(now.diff(end));
+            var minutes = duration.asMinutes();
+            data_time.push(Math.abs(minutes))
+
+            var lat1 = mounts.place[i].geometry.coordinates[1]
+            var lat2 = mounts.place[j].geometry.coordinates[1]
+            var lon1 = mounts.place[i].geometry.coordinates[0]
+            var lon2 = mounts.place[j].geometry.coordinates[0]
+            
+            var R = 6371;
+            var dLat = (lat2-lat1) * (Math.PI/180);
+            var dLon = (lon2-lon1) * (Math.PI/180); 
+            var a = 
+              Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos((lat1)*(Math.PI/180)) * Math.cos((lat2)*(Math.PI/180)) * 
+              Math.sin(dLon/2) * Math.sin(dLon/2)
+            ; 
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+            var d = R * c; // Distance in km
+
+            data_distance.push(Math.round(d*1000))
+        }
+    }
+
+    if (mounts.length !== 0) {
+        res.status(200).json({
+            'status': 'ok','data_place': mounts,'data_time':data_time,'data_distance':data_distance
+        })
+    } else {
+        res.json(view('mounts empty'))
+    }
+})
+
 router.get('/search/:text', async (req, res, next) => {
 
     let keyword = "%"+req.params.text+"%"
