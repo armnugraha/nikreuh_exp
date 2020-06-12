@@ -20,14 +20,17 @@ module.exports = {
         {gear_id:3,name: 'Aether AG 70',weight:2500,condition:1,type:0,capacity: "70 Liter"},
         {gear_id:3,name: 'Kestrel 48',weight:1700,condition:1,type:0,capacity: "48 Liter"},
         {gear_id:3,name: 'Rhinos 60L',weight:2000,condition:1,type:0,capacity: "60 Liter"},
-        {gear_id:3,name: 'Daypack 35L',weight:1000,condition:1,type:1,capacity:"35 Liter"},
+        {gear_id:3,name: 'Daypack 35L',weight:1000,condition:0,type:1,capacity:"35 Liter"},
+        {gear_id:3,name: 'Merapi 55L',weight:1000,condition:0,type:0,capacity:"55 Liter"},
 
         {gear_id:4,name: 'Matras Yoga',weight: 800,condition:1,type:0,capacity:"Panjang 180cm"},
         {gear_id:4,name: 'Klymit Static V2',weight:450,condition:1,type:1,capacity:"Panjang 182cm"},
         {gear_id:4,name: 'Matras Gulung',weight:700,condition:0,type:0,capacity:"Panjang 182cm"},
+        {gear_id:4,name: 'Klymit Static V1',weight:500,condition:0,type:1,capacity:"Panjang 182cm"},
 
         {gear_id:5,name: 'Asolo Implus QL Quick Lock',weight:500,condition:1,type:0,capacity:"Telescope"},
         {gear_id:5,name: 'Eiger Tenacity',weight:260,condition:1,type:1,capacity:"Lipat"},
+        {gear_id:5,name: 'Eiger Tenacity Long',weight:500,condition:0,type:1,capacity:"Telescope"},
         {gear_id:5,name: 'Black Diamond Trail Sport 3',weight:500,condition:0,type:0,capacity:"Telescope"},
 
         {gear_id:6,name: 'Flysheet 2x3',weight:600,condition:1,type:1,capacity:"2x3"},
