@@ -18,11 +18,21 @@ const paginate = (query, { page, pageSize }) => {
   };
 };
 
+router.get('/all', async function (req, res, next) {
+    const gears = await Models.gears.findAll({})
+    if (gears.length !== 0) {
+        res.json(view(gears))
+    } else {
+        res.json(view('gears empty'))
+    }
+})
+
 // condition (clear / sun (0), rainy & Thunderstorm & clouds(1)) jika kondisi hujan tampilkan yg kondisi nya hujan saja, apabila panas tampilkan semua
 // type (normal (0), ultralight (1))
 
-router.get('/:id/:condition/:type', async (req, res, next) => {
+router.get('/gear_sets/:id/:condition/:type', async (req, res, next) => {
     const gears = await Models.outdoor_gears.findAll({
+        attributes: ['id', 'mount_id', 'gear_id'],
         where: { mount_id: req.params.id },
         include: [
             {model: Models.gears, include: [{model: Models.gear_items,
