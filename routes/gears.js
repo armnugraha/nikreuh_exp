@@ -27,6 +27,81 @@ router.get('/all', async function (req, res, next) {
     }
 })
 
+router.get('/gear_available/:id', async (req, res, next) => {
+    const gear_unselected = await Models.outdoor_gears.findAll({
+        where: { mount_id: req.params.id },
+    })
+
+    var setToArray = []
+
+    gear_unselected.forEach(item => { 
+        setToArray.push(item.gear_id)
+    });
+
+    const gears = await Models.gears.findAll({
+        where: {
+            id: {
+                [Op.notIn]: setToArray
+            }
+        }
+    })
+    
+    if (gears.length !== 0) {
+        res.json(view(gears))
+    } else {
+        res.json(view('gears empty'))
+    }
+})
+
+router.get('/gear_sets/:id', async (req, res, next) => {
+    const gears = await Models.outdoor_gears.findAll({
+        where: { mount_id: req.params.id },
+        include: [ Models.gears ]
+    })
+
+    if (gears.length !== 0) {
+        res.json(view(gears))
+    } else {
+        res.json(view('gears empty'))
+    }
+})
+
+router.post('/add_gear', async (req, res, next) => {
+    try {
+        const {mount_id,gear_id} = req.body;
+        const outdoor_gears = await Models.outdoor_gears.create({
+            mount_id,gear_id
+        });
+        if (outdoor_gears) {
+            res.json(view(outdoor_gears))
+        }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
+    }
+})
+
+router.delete('/gear/:id', async function (req, res, next) {
+    try {
+        const getId = req.params.id;
+        const outdoor_gears = await Models.outdoor_gears.destroy({ where: {
+            id: getId
+        }})
+        if (outdoor_gears) {
+          res.json({
+            'status': 'ok',
+            'messages': 'Data berhasil dihapus',
+            'data': outdoor_gears,
+          })
+        }
+    } catch (err) {
+        res.status(400).json({
+            'status': 'ERROR',
+            'messages': err.message,
+            'data': {},
+        })
+    }
+});
+
 // condition (clear / sun (0), rainy & Thunderstorm & clouds(1)) jika kondisi hujan tampilkan yg kondisi nya hujan saja, apabila panas tampilkan semua
 // type (normal (0), ultralight (1))
 

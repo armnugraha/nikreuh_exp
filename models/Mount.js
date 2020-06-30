@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     desc: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE,
+    start_time: DataTypes.TIME,
+    end_time: DataTypes.TIME,
     full_time: DataTypes.BOOLEAN,
     // start_day: DataTypes.STRING,
     start_day: { 

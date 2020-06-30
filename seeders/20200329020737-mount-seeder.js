@@ -56,7 +56,7 @@ module.exports = {
       altitude:1100,
       rank: 5,
       thumb:null,
-      type:"Medium",
+      type:"Normal",
       desc:"CIC merupakan kompleks perkemahan yang tidak hanya berfungsi sebagai tempat camping. Dengan luas sekitar 22 Ha, memiliki beberapa fungsi lainnya yang dijamin membuat liburan anda dan keluarga menjadi asyik. Terletak di ketinggian 1.100 Mdpl, membuat CIC memiliki hawa dingin khas pegunungan. Sangat cocok untuk anda yang ingin melepas penat setelah seharian bekerja dibawah terik matahari. Bukan hanya untuk dijadikan tempat berlibur, CIC juga bisa menjadi salah satu tempat pilihan anda untuk ngabuburit. Dengan semua fasilitas yang dimiliki CIC, sudah pasti ngabuburit anda tidak akan membosankan. Dimulai dengan pemandangan indah yang dimiliki Ciwangun Indah Camp. Pemandangan ini didapat dari tekstur tanah yang berbukit – bukit. Sehingga anda tidak akan jemu meskipun anda melepas pandangan selama beberapa menit. Disamping itu, anda bisa menikmati pemandangan yang berwarna hijau yang bersumber dari kebun teh dekat area CIC, juga pohon – pohon pinus yang menjulang, akan menambah kesyahduan anda saat menikmati alam sekitar.",
       price:10000,
       start_time:"07:00:00",
