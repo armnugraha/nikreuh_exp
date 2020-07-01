@@ -26,7 +26,7 @@ var sendNotification = function(data) {
         "Content-Type": "application/json; charset=utf-8",
         "Authorization": "Basic Y2E5ZjliNDctZmYzOC00NDVmLWIzODItYmZmNGMxYjAwMzZh"
     };
-  
+
     var options = {
         host: "onesignal.com",
         port: 443,
