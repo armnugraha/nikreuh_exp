@@ -21,6 +21,37 @@ const paginate = (query, { page, pageSize }) => {
     };
 };
 
+var sendNotification = function(data) {
+    var headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic Y2E5ZjliNDctZmYzOC00NDVmLWIzODItYmZmNGMxYjAwMzZh"
+    };
+  
+    var options = {
+        host: "onesignal.com",
+        port: 443,
+        path: "/api/v1/notifications",
+        method: "POST",
+        headers: headers
+    };
+  
+    var https = require('https');
+    var req = https.request(options, function(res) {  
+        res.on('data', function(data) {
+            // console.log("Response:");
+            // console.log(JSON.parse(data));
+        });
+    });
+  
+    req.on('error', function(e) {
+        // console.log("ERROR:");
+        // console.log(e);
+    });
+  
+    req.write(JSON.stringify(data));
+    req.end();
+};
+
 router.get('/', async (req, res, next) => {
  	const count_announce = await Announce.count({})
     const totalPage = Math.ceil(count_announce/pageLimit)
@@ -86,7 +117,15 @@ router.post('/', async (req, res, next) => {
         const announce = await Announce.create({
             mount_id,title,note,start_date,end_date,file
         });
+        const mounts = await Mount.findByPk(mount_id)
+
         if (announce) {
+            var message = { 
+                app_id: "bed7e669-3057-4f11-b27a-0586250aa0f1",
+                contents: {"en": "Penutupan Gunung "+ mounts.name+" : "+title},
+                included_segments: ["All"]
+            };
+            sendNotification(message);
             res.json(view(announce))
         }
     } catch (err) {
@@ -115,10 +154,18 @@ router.patch('/:id', async function (req, res, next) {
 router.delete('/:id', async function (req, res, next) {
     try {
         const getId = req.params.id;
+        const get_announce = await Announce.findByPk(getId)
+        const mounts = await Mount.findByPk(get_announce.mount_id)
         const announce = await Announce.destroy({ where: {
             id: getId
         }})
         if (announce) {
+            var message = { 
+                app_id: "bed7e669-3057-4f11-b27a-0586250aa0f1",
+                contents: {"en": mounts.name + " dapat kamu kunjungi kembali :)"},
+                included_segments: ["All"]
+            };
+            sendNotification(message);
             res.json({
                 'status': 'ok',
                 'messages': 'Pengumuman berhasil dihapus',
