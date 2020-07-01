@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     },
     place: { 
-        type: DataTypes.STRING, 
+        type: DataTypes.TEXT, 
         get: function() {
             return JSON.parse(this.getDataValue('place'));
         }, 
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     },
     track_line: { 
-        type: DataTypes.STRING, 
+        type: DataTypes.TEXT, 
         get: function() {
             return JSON.parse(this.getDataValue('track_line'));
         }, 
