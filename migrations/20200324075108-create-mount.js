@@ -22,9 +22,9 @@ module.exports = {
       altitude: {
         type: Sequelize.INTEGER
       },
-      rank: {
-        type: Sequelize.INTEGER
-      },
+      // rank: {
+      //   type: Sequelize.INTEGER
+      // },
       thumb: {
         type: Sequelize.TEXT
       },

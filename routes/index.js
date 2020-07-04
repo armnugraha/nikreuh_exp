@@ -3,7 +3,7 @@ var router = express.Router()
 var view = require('../views')
 
 router.get('/', async (req, res, next) => {
-	sendNotification(message);
+	// sendNotification(message);
   res.json(view([]))
 })
 

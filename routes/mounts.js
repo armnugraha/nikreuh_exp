@@ -28,6 +28,37 @@ const paginate = (query, { page, pageSize }) => {
     };
 };
 
+var sendNotification = function(data) {
+    var headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic Y2E5ZjliNDctZmYzOC00NDVmLWIzODItYmZmNGMxYjAwMzZh"
+    };
+
+    var options = {
+        host: "onesignal.com",
+        port: 443,
+        path: "/api/v1/notifications",
+        method: "POST",
+        headers: headers
+    };
+  
+    var https = require('https');
+    var req = https.request(options, function(res) {  
+        res.on('data', function(data) {
+            // console.log("Response:");
+            // console.log(JSON.parse(data));
+        });
+    });
+  
+    req.on('error', function(e) {
+        // console.log("ERROR:");
+        // console.log(e);
+    });
+  
+    req.write(JSON.stringify(data));
+    req.end();
+};
+
 router.get('/', async function (req, res, next) {
     const count_mount = await Mount.count({})
     const totalPage = Math.ceil(count_mount/pageLimit)
@@ -157,8 +188,8 @@ router.get('/mount/:id', async (req, res, next) => {
                 var d = R * c; // Distance in km
 
                 var set_minute = Math.round(d*1000)
-                if(set_minute >= 60){
-                    data_time.push((set_minute/60).toFixed(0))
+                if(set_minute >= 30){
+                    data_time.push((set_minute/30).toFixed(0))
                 }else{
                     data_time.push(1)
                 }
@@ -224,9 +255,27 @@ router.get('/search/:text', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
+        const {user_id,name,address,altitude,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
         const mounts = await Mount.create({
-            user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
+            user_id,name,address,altitude,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line
+        });
+    if (mounts) {
+        res.json(view(mounts))
+    }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
+    }
+})
+
+router.post('/create_cms', async (req, res, next) => {
+    try {
+        const {user_id,name,address,altitude,thumb,type,desc,price} = req.body;
+        const mounts = await Mount.create({
+            user_id,name,address,altitude,thumb,type,desc,price,
+            start_day:["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
+            center_coordinate:[107.609810,-6.914744],
+            place:[],
+            track_line:[]
         });
     if (mounts) {
         res.json(view(mounts))
@@ -242,9 +291,16 @@ router.post('/announce_post', async (req, res, next) => {
         const announce = await Announce.create({
             mount_id,title,note,start_date,end_date
         });
-    if (announce) {
-        res.json(view(announce))
-    }
+        const mounts = await Mount.findByPk(mount_id)
+        if (announce) {
+            var message = { 
+                app_id: "bed7e669-3057-4f11-b27a-0586250aa0f1",
+                contents: {"en": "Penutupan Gunung "+ mounts.name+" : "+title},
+                included_segments: ["All"]
+            };
+            sendNotification(message);
+            res.json(view(announce))
+        }
     } catch (err) {
         res.json(view(err.errors[0].message))
     }
@@ -255,7 +311,7 @@ router.patch('/:id', async (req, res, next) => {
 
     try {
         const mountId = req.params.id;
-        const {user_id,name,address,altitude,rank,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
+        const {user_id,name,address,altitude,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
         
         var updateData;
 
@@ -285,13 +341,60 @@ router.patch('/:id', async (req, res, next) => {
     }
 })
 
+router.patch('/update_cms/:id', async (req, res, next) => {
+    const get_mount = await Mount.findByPk(req.params.id)
+
+    try {
+        const mountId = req.params.id;
+        const {user_id,name,address,altitude,thumb,type,desc,price,start_time,end_time,full_time,start_day,center_coordinate,place,track_line} = req.body;
+        
+        var updateData = {user_id,name,address,altitude,type,desc,price,
+                start_time:get_mount.start_time,
+                end_time:get_mount.end_time,
+                full_time:get_mount.full_time,
+                start_day:get_mount.start_day,
+                center_coordinate:get_mount.center_coordinate,
+                thumb:get_mount.thumb,
+                place:get_mount.place,
+                track_line:get_mount.track_line
+            };
+
+        const mounts = await Mount.update(updateData,{
+            where: {
+                id: mountId
+            }
+        });
+        if (mounts) {
+            res.json(view(mounts))
+        }
+    } catch (err) {
+        res.json(view(err.errors[0].message))
+    }
+})
+
 router.patch('/update_track/:id', async (req, res, next) => {
+    const get_mount = await Mount.findByPk(req.params.id)
+
     try {
         const mountId = req.params.id;
         const {place,track_line} = req.body;
         
         var updateData = {
-                place,track_line
+                name:get_mount.name,
+                address:get_mount.address,
+                altitude:get_mount.altitude,
+                thumb:get_mount.thumb,
+                type:get_mount.type,
+                desc:get_mount.desc,
+                price:get_mount.price,
+                start_time:get_mount.start_time,
+                end_time:get_mount.end_time,
+                full_time:get_mount.full_time,
+                start_day:get_mount.start_day,
+                center_coordinate:get_mount.center_coordinate,
+                user_id:get_mount.user_id,
+                place,
+                track_line
             };
         
         const mounts = await Mount.update(updateData,{
@@ -324,11 +427,23 @@ router.delete('/:id', async function (req, res, next) {
 router.delete('/announce_delete/:id', async function (req, res, next) {
     try {
         const getId = req.params.id;
+        const get_announce = await Announce.findByPk(getId)
+        const mounts = await Mount.findByPk(get_announce.mount_id)
         const announce = await Announce.destroy({ where: {
             id: getId
         }})
         if (announce) {
-            res.json(view(announce))
+            var message = { 
+                app_id: "bed7e669-3057-4f11-b27a-0586250aa0f1",
+                contents: {"en": mounts.name + " dapat kamu kunjungi kembali :)"},
+                included_segments: ["All"]
+            };
+            sendNotification(message);
+            res.json({
+                'status': 'ok',
+                'messages': 'Pengumuman berhasil dihapus',
+                'data': announce,
+            })
         }
     } catch (err) {
         res.json(view(err.errors[0].message))

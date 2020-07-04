@@ -33,13 +33,30 @@ router.get('/:id', async (req, res, next) => {
     const reviews = await Review.findAll({
         include: [ Models.users ],
         where: { mount_id: req.params.id },
+        limit:10,
         order: [
             ['id', 'DESC']
         ]
     })
 
+    const total_review = await Review.findAll({
+        where: { mount_id: req.params.id },
+    })
+
     if (reviews.length !== 0) {
-        res.json(view(reviews))
+        if (total_review.length !== 0) {
+            res.json({
+                'status': 'ok',
+                'data': reviews,
+                'total_review': total_review.length,
+            })
+        }else{
+            res.json({
+                'status': 'ok',
+                'data': reviews,
+                'total_review': 0,
+            })
+        }
     } else {
         res.json(view('reviews empty'))
     }
