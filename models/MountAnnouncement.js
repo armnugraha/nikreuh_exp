@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     note: DataTypes.STRING,
     start_date: DataTypes.DATEONLY,
     end_date: DataTypes.DATEONLY,
-    file: DataTypes.TEXT
+    // file: DataTypes.TEXT
   }, {});
   MountAnnouncement.associate = function(models) {
     // associations can be defined here

@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
         phone: DataTypes.INTEGER,
         gender: DataTypes.INTEGER,
         birth: DataTypes.DATEONLY,
-        height: DataTypes.INTEGER,
-        weight: DataTypes.INTEGER,
+        // height: DataTypes.INTEGER,
+        // weight: DataTypes.INTEGER,
         role_id: DataTypes.INTEGER,
     }, {})
     User.associate = function (models) {

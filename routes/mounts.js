@@ -272,6 +272,7 @@ router.post('/create_cms', async (req, res, next) => {
         const {user_id,name,address,altitude,thumb,type,desc,price} = req.body;
         const mounts = await Mount.create({
             user_id,name,address,altitude,thumb,type,desc,price,
+            full_time:true,
             start_day:["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
             center_coordinate:[107.609810,-6.914744],
             place:[],

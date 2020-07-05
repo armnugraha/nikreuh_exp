@@ -24,10 +24,10 @@ module.exports = {
       end_date: {
         type: Sequelize.DATEONLY
       },
-      file: {
-        allowNull: true,
-        type: Sequelize.TEXT
-      },
+      // file: {
+      //   allowNull: true,
+      //   type: Sequelize.TEXT
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

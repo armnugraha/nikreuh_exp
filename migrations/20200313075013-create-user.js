@@ -31,12 +31,12 @@ module.exports = {
             birth: {
                 type: Sequelize.DATEONLY
             },
-            height: {
-                type: Sequelize.INTEGER
-            },
-            weight: {
-                type: Sequelize.INTEGER
-            },
+            // height: {
+            //     type: Sequelize.INTEGER
+            // },
+            // weight: {
+            //     type: Sequelize.INTEGER
+            // },
             role_id: {
                 type: Sequelize.INTEGER
                 // references: { model: 'roles', key: 'id' }
