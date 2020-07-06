@@ -73,83 +73,84 @@ module.exports = {
     // weight:70,
     //   role_id: 3
     // },
-    {
-      name: 'arman',
-      username: 'arman',
-      email: 'arman@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1998-05-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    },
-    {
-      name: 'shiffa',
-      username: 'shiffa',
-      email: 'shiffa@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:1,
-      birth:"1998-06-17",
-      height:168,
-      weight:50,
-      role_id: 3
-    },
-    {
-      name: 'rikad',
-      username: 'rikad',
-      email: 'rikad@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1997-02-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    },
-    {
-      name: 'indra',
-      username: 'indra',
-      email: 'indra@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1997-10-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    },
-    {
-      name: 'faishal',
-      username: 'faishal',
-      email: 'faishal@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1998-05-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    },
-    {
-      name: 'heruwin',
-      username: 'heruwin',
-      email: 'heruwin@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1998-05-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    },
-    {
-      name: 'ihan',
-      username: 'ihan',
-      email: 'ihan@unikom.com',
-      password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
-      gender:0,
-      birth:"1998-05-19",
-      height:173,
-      weight:70,
-      role_id: 3
-    }], {})
+    // {
+    //   name: 'arman',
+    //   username: 'arman',
+    //   email: 'arman@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1998-05-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'shiffa',
+    //   username: 'shiffa',
+    //   email: 'shiffa@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:1,
+    //   birth:"1998-06-17",
+    //   height:168,
+    //   weight:50,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'rikad',
+    //   username: 'rikad',
+    //   email: 'rikad@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1997-02-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'indra',
+    //   username: 'indra',
+    //   email: 'indra@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1997-10-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'faishal',
+    //   username: 'faishal',
+    //   email: 'faishal@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1998-05-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'heruwin',
+    //   username: 'heruwin',
+    //   email: 'heruwin@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1998-05-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // },
+    // {
+    //   name: 'ihan',
+    //   username: 'ihan',
+    //   email: 'ihan@unikom.com',
+    //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
+    //   gender:0,
+    //   birth:"1998-05-19",
+    //   height:173,
+    //   weight:70,
+    //   role_id: 3
+    // }
+    ], {})
   },
 
   down: (queryInterface, Sequelize) => {

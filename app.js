@@ -14,6 +14,7 @@ var mountCloseRouter = require('./routes/mount_close')
 var reviewsRouter = require('./routes/reviews')
 var rolesRouter = require('./routes/roles')
 var gearsRouter = require('./routes/gears')
+var seedersRouter = require('./routes/seeds')
 
 var app = express()
 
@@ -43,6 +44,7 @@ app.use('/mount_close', mountCloseRouter)
 app.use('/reviews', reviewsRouter)
 app.use('/roles', rolesRouter)
 app.use('/gears', gearsRouter)
+app.use('/seeders', seedersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
