@@ -11,8 +11,6 @@ module.exports = {
       password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
       gender:0,
       birth:"1998-05-19",
-      height:173,
-      weight:70,
       role_id: 1
     },{
       name: 'Aan',
@@ -22,8 +20,6 @@ module.exports = {
       phone:('0' + 87812316625).slice(-12),
       gender:0,
       birth:"1980-05-19",
-      height:173,
-      weight:70,
       role_id: 2
     },
     {
@@ -34,8 +30,6 @@ module.exports = {
       phone:('0' + 87812316626).slice(-12),
       gender:0,
       birth:"1982-05-19",
-      height:173,
-      weight:70,
       role_id: 2
     },
     {
@@ -46,8 +40,6 @@ module.exports = {
       phone:('0' + 87812316627).slice(-12),
       gender:0,
       birth:"1986-05-19",
-      height:173,
-      weight:70,
       role_id: 2
     },
     {
@@ -58,8 +50,6 @@ module.exports = {
       phone:('0' + 87812316628).slice(-12),
       gender:0,
       birth:"1989-05-19",
-      height:173,
-      weight:70,
       role_id: 2
     },
     // {
@@ -69,8 +59,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     // gender:0,
     // birth:,
-    // height:173,
-    // weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -80,8 +69,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1998-05-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -91,8 +79,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:1,
     //   birth:"1998-06-17",
-    //   height:168,
-    //   weight:50,
+  
     //   role_id: 3
     // },
     // {
@@ -102,8 +89,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1997-02-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -113,8 +99,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1997-10-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -124,8 +109,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1998-05-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -135,8 +119,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1998-05-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // },
     // {
@@ -146,8 +129,7 @@ module.exports = {
     //   password: bcrypt.hashSync('password', bcrypt.genSaltSync(10)),
     //   gender:0,
     //   birth:"1998-05-19",
-    //   height:173,
-    //   weight:70,
+  
     //   role_id: 3
     // }
     ], {})
