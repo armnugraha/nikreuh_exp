@@ -30,6 +30,8 @@ sequelize seed:generate --name gear_items
 sequelize seed:generate --name outdoor_gears
 
 ## Seed by class
+sequelize db:seed --seed 20200313080537-user-seeder
+sequelize db:seed --seed 20200412025202-mount-review-seeder
 sequelize db:seed --seed 20200329020737-mount-seeder
 sequelize db:seed --seed 20200529084203-gears
 sequelize db:seed --seed 20200529084206-gear_items

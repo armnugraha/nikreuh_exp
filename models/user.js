@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             unique: {
                 args: true,
-                msg: 'Username already in use!'
+                msg: 'Username sudah digunakan!'
             }
         },
         email:  {
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             unique: {
                 args: true,
-                msg: 'Email address already in use!'
+                msg: 'Email sudah digunakan!'
             }
         },
         password: DataTypes.STRING,
