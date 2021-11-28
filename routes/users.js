@@ -4,7 +4,7 @@ var User = require('../models').users
 var Role = require('../models').roles
 var view = require('../views')
 var Models = require('../models')
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 const pageLimit = 10
 
 //PAGINATION Function

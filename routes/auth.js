@@ -1,7 +1,7 @@
 const express = require('express')
 const jwt = require('../jwt')
 const router = express.Router()
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 var User = require('../models').users
 var view = require('../views')
 
