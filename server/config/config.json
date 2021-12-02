@@ -4,20 +4,26 @@
     "password": "4a9891224c25e5f41c04165a1276efcdd90155b6bcfb24d5ec680d6bdecc3bd7",
     "database": "d6l01b7adk54lo",
     "host": "ec2-3-91-112-166.compute-1.amazonaws.com",
-    "dialect": "postgres"
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "dlyshkupxfefhe",
     "password": "4a9891224c25e5f41c04165a1276efcdd90155b6bcfb24d5ec680d6bdecc3bd7",
     "database": "d6l01b7adk54lo",
     "host": "ec2-3-91-112-166.compute-1.amazonaws.com",
-    "dialect": "postgres"
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "production": {
     "username": "dlyshkupxfefhe",
     "password": "4a9891224c25e5f41c04165a1276efcdd90155b6bcfb24d5ec680d6bdecc3bd7",
     "database": "d6l01b7adk54lo",
     "host": "ec2-3-91-112-166.compute-1.amazonaws.com",
-    "dialect": "postgres"
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
   }
 }
