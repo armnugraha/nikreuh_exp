@@ -150,9 +150,9 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
   settingMount(req, res) {
-    const users = await User.findByPk(req.params.user_id)
+    const users = User.findByPk(req.params.user_id)
 
-    const mounts = await Mount.findOne({
+    const mounts = Mount.findOne({
         where: { user_id: users.id },
         limit: 1
     })
@@ -175,7 +175,7 @@ module.exports = {
   },
   mountShow(req, res) {
     try {
-        const mounts = await Mount.findByPk(req.params.id)
+        const mounts = Mount.findByPk(req.params.id)
 
         var data_pick = []
         var data_time = []
@@ -240,7 +240,7 @@ module.exports = {
   searchMount(req, res) {
     let keyword = "%"+req.params.text+"%"
 
-    const mounts = await Mount.findAll({
+    const mounts = Mount.findAll({
         where: {
             [Op.or]: [
                 {name: {
