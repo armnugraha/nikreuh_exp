@@ -7,10 +7,10 @@ module.exports = (app) => {
   }));
 
   // app.post('/api/todos', todosController.create);
-  app.get('/api/mounts', mountsController.list);
-  app.get('/api/mounts/:id', mountsController.retrieve);
-  app.get('/api/roles', rolesController.list);
-  app.get('/api/roles/:roleId', rolesController.retrieve);
+  app.get('/mounts', mountsController.list);
+  app.get('/mounts/:id', mountsController.retrieve);
+  app.get('/roles', rolesController.list);
+  app.get('/roles/:roleId', rolesController.retrieve);
   // app.put('/api/todos/:todoId', todosController.update);
   // app.delete('/api/todos/:todoId', todosController.destroy);
 
