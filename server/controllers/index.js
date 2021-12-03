@@ -1,5 +1,6 @@
-const roles = require('./roles');
+const roles = require('./roles'),
+      mounts = require('./mounts');
 
 module.exports = {
-  roles,
+  roles, mounts
 };

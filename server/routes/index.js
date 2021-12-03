@@ -1,5 +1,5 @@
-const rolessController = require('../controllers').roles;
-// const todoItemsController = require('../controllers').todoItems;
+const rolesController = require('../controllers').roles;
+const mountsController = require('../controllers').mounts;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -7,8 +7,10 @@ module.exports = (app) => {
   }));
 
   // app.post('/api/todos', todosController.create);
-  app.get('/api/roles', rolessController.list);
-  app.get('/api/roles/:roleId', rolessController.retrieve);
+  app.get('/api/mounts', mountsController.list);
+  app.get('/api/mounts/:id', mountsController.retrieve);
+  app.get('/api/roles', rolesController.list);
+  app.get('/api/roles/:roleId', rolesController.retrieve);
   // app.put('/api/todos/:todoId', todosController.update);
   // app.delete('/api/todos/:todoId', todosController.destroy);
 
