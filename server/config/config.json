@@ -8,11 +8,11 @@
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
-        "require": 1,
-        "rejectUnauthorized": 0
+        "require": true,
+        "rejectUnauthorized": false
       }
     },
-    "operatorsAliases": 0
+    "operatorsAliases": false
   },
   "test": {
     "username": "dlyshkupxfefhe",
@@ -23,11 +23,11 @@
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
-        "require": 1,
-        "rejectUnauthorized": 0
+        "require": true,
+        "rejectUnauthorized": false
       }
     },
-    "operatorsAliases": 0
+    "operatorsAliases": false
   },
   "production": {
     "username": "dlyshkupxfefhe",
@@ -38,10 +38,10 @@
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
-        "require": 1,
-        "rejectUnauthorized": 0
+        "require": true,
+        "rejectUnauthorized": false
       }
     },
-    "operatorsAliases": 0
+    "operatorsAliases": false
   }
 }
