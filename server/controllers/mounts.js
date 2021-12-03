@@ -95,8 +95,22 @@ module.exports = {
     ))
 
     return mounts
-      .then(data => res.status(200).send(data))
+      .then(data => res.status(200).json({
+         'status': 'ok',
+         'pageSize': totalPage,
+         'data': data,
+      }))
       .catch(error => res.status(400).send(error));
+
+    // if (mounts.length !== 0) {
+    //   res.status(200).json({
+    //      'status': 'ok',
+    //      'pageSize': totalPage,
+    //      'data': mounts,
+    //   })
+    // } else {
+    //     res.json(view('mounts empty'))
+    // }
   },
   retrieve(req, res) {
     const mounts = Mount.findOne({
