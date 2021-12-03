@@ -9,6 +9,10 @@ module.exports = (app) => {
   // app.post('/api/todos', todosController.create);
   app.get('/mounts', mountsController.list);
   app.get('/mounts/:id', mountsController.retrieve);
+  app.get('/mounts/setting_mount/:user_id', mountsController.settingMount);
+  app.get('/mounts/mount/:id', mountsController.mountShow);
+  app.get('/mounts/search/:text', mountsController.searchMount);
+
   app.get('/roles', rolesController.list);
   app.get('/roles/:roleId', rolesController.retrieve);
   // app.put('/api/todos/:todoId', todosController.update);
